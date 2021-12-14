@@ -16,7 +16,7 @@ namespace DevFreela.Core.Entities
             
             CreatedAt = DateTime.Now;
             Status = ProjectStatus.Created;
-            Comments = new List<ProjectComments>();
+            Comments = new List<ProjectComment>();
         }
 
         public string Title { get; private set; }
@@ -28,7 +28,15 @@ namespace DevFreela.Core.Entities
         public DateTime? StartedAt { get; private set; }
         public DateTime? FinishedAt { get; private set; }
         public ProjectStatus Status { get; private set; }
-        public List<ProjectComments> Comments { get; private set; }
+        public List<ProjectComment> Comments { get; private set; }
+
+        public void Cancel()
+        {
+            if (Status == ProjectStatus.InProgress)
+            {
+                Status = ProjectStatus.Cancelled;
+            }
+        }
         
     }
 }
