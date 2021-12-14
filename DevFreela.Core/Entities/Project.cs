@@ -30,6 +30,9 @@ namespace DevFreela.Core.Entities
         public ProjectStatus Status { get; private set; }
         public List<ProjectComment> Comments { get; private set; }
 
+        
+        #region Methods
+
         public void Cancel()
         {
             if (Status == ProjectStatus.InProgress)
@@ -38,5 +41,31 @@ namespace DevFreela.Core.Entities
             }
         }
         
+        public void Start()
+        {
+            if (Status == ProjectStatus.Created)
+            {
+                Status = ProjectStatus.InProgress;
+                StartedAt = DateTime.Now;
+            }
+        }
+
+        public void Finish()
+        {
+            if (Status == ProjectStatus.InProgress)
+            {
+                Status = ProjectStatus.Finished;
+                FinishedAt = DateTime.Now;
+            }
+        }
+
+        public void Update(string title, string description, decimal totalCost)
+        {
+            Title = title;
+            Description = description;
+            TotalCost = totalCost;
+        }
+
+        #endregion
     }
 }
