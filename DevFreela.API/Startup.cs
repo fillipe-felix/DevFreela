@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using DevFreela.API.Models;
+using DevFreela.Application.Services.Implementations;
+using DevFreela.Application.Services.Interfaces;
+using DevFreela.Infrastructure.Persistence;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -28,6 +31,10 @@ namespace DevFreela.API
         public void ConfigureServices(IServiceCollection services)
         {
             services.Configure<OpeningTimeOption>(Configuration.GetSection("OpeningTime"));
+
+            services.AddSingleton<DevFreelaDbContext>();
+
+            services.AddScoped<IProjectService, ProjectService>();
             
             services.AddControllers();
             services.AddSwaggerGen(c =>
