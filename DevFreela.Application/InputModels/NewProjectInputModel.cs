@@ -1,4 +1,4 @@
-﻿namespace DevFreela.Application.ViewModels
+﻿namespace DevFreela.Application.InputModels
 {
     public class NewProjectInputModel
     {

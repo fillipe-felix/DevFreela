@@ -3,6 +3,7 @@ using DevFreela.Application.ViewModels;
 using DevFreela.Core.Entities;
 using DevFreela.Infrastructure.Persistence;
 using System.Linq;
+using DevFreela.Application.InputModels;
 
 namespace DevFreela.Application.Services.Implementations
 {
