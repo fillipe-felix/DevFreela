@@ -18,7 +18,7 @@ namespace DevFreela.Application.Commands.UpdateProject
         {
             var project = await _projectRepository.GetDetailsByIdAsync(request.Id);
 
-            project.Update(project.Title, project.Description, project.TotalCost);
+            project.Update(request.Title, request.Description, request.TotalCost);
 
             await _projectRepository.SaveChangesAsync();
             

@@ -26,10 +26,10 @@ namespace DevFreela.Application.Queries.GetProjectById
                 project.Title,
                 project.Description,
                 project.TotalCost,
-                project.CreatedAt,
+                project.StartedAt,
                 project.FinishedAt,
-                project.Client.Name,
-                project.Freelancer.Name
+                project.Client.FullName,
+                project.Freelancer.FullName
             );
 
             return projectDetailsViewModel;

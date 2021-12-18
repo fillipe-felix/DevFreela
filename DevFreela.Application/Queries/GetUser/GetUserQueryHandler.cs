@@ -27,7 +27,7 @@ namespace DevFreela.Application.Queries.GetUser
                 return null;
             }
 
-            return new UserViewModel(user.Name, user.Email);
+            return new UserViewModel(user.FullName, user.Email);
         }
     }
 }

@@ -5,9 +5,9 @@ namespace DevFreela.Core.Entities
 {
     public class User : BaseEntity
     {
-        public User(string name, string email, DateTime birthDate)
+        public User(string fullName, string email, DateTime birthDate)
         {
-            Name = name;
+            FullName = fullName;
             Email = email;
             BirthDate = birthDate;
             
@@ -19,7 +19,7 @@ namespace DevFreela.Core.Entities
             FreelanceProjects = new List<Project>();
         }
 
-        public string Name { get; private set; }
+        public string FullName { get; private set; }
         public string Email { get; set; }
         public DateTime BirthDate { get; set; }
         public DateTime CreatedAt { get; private set; }
