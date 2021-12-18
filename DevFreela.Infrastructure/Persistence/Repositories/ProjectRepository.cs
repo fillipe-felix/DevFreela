@@ -30,5 +30,37 @@ namespace DevFreela.Infrastructure.Persistence.Repositories
 
             return project;
         }
+
+        public async Task AddAsync(Project project)
+        {
+            await _dbContext.Projects.AddAsync(project);
+            await _dbContext.SaveChangesAsync();
+        }
+
+        public async Task StartAsync(Project project)
+        {
+            await _dbContext.SaveChangesAsync();
+        }
+
+        public async Task FinishAsync(Project project)
+        {
+            await _dbContext.SaveChangesAsync();
+        }
+
+        public async Task DeleteAsync(Project project)
+        {
+            await _dbContext.SaveChangesAsync();
+        }
+
+        public async Task SaveChangesAsync()
+        {
+            await _dbContext.SaveChangesAsync();
+        }
+
+        public async Task AddCommentAsync(ProjectComment projectComment)
+        {
+            await _dbContext.ProjectComments.AddAsync(projectComment);
+            await _dbContext.SaveChangesAsync();
+        }
     }
 }
