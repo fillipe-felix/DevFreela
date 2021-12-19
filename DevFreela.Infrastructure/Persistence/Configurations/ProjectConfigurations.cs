@@ -9,6 +9,9 @@ namespace DevFreela.Infrastructure.Persistence.Configurations
         public void Configure(EntityTypeBuilder<Project> builder)
         {
             builder.HasKey(p => p.Id);
+            
+            builder.Property(p => p.TotalCost)
+                .HasColumnType("decimal(18,2)");
 
             builder
                 .HasOne(p => p.Freelancer)
