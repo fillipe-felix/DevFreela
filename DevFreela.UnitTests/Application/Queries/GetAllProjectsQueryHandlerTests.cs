@@ -9,7 +9,7 @@ using Xunit;
 
 namespace DevFreela.UnitTests.Application.Queries
 {
-    public class GetAllProjectsCommandHandlerTests
+    public class GetAllProjectsQueryHandlerTests
     {
         [Fact]
         public async Task ThreeProjectsExist_Executed_ReturnThreeProjectViewModels()
