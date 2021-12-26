@@ -1,6 +1,9 @@
 ﻿language: csharp
+dist: trusty
+os: linux
+sudo: required
 mono: none
-dotnet: 5.x
+dotnet: 5.0
 
 install:
   - dotnet restore
