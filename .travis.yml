@@ -1,6 +1,5 @@
 ﻿language: csharp
 mono: none
-dist: xenial
 dotnet: 5.x
 
 install:
