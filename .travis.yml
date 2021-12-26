@@ -1,5 +1,5 @@
 ﻿language: csharp
-dist: trusty
+dist: xenial
 os: linux
 sudo: required
 mono: none
