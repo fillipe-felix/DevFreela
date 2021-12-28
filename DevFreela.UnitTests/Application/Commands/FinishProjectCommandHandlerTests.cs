@@ -4,6 +4,7 @@ using DevFreela.Application.Commands.FinishProject;
 using DevFreela.Core.Entities;
 using DevFreela.Core.Enums;
 using DevFreela.Core.Repositories;
+using DevFreela.Core.Services;
 using Moq;
 using Xunit;
 
@@ -16,6 +17,7 @@ namespace DevFreela.UnitTests.Application.Commands
         {
             // Arrange
             var projectRepositoryMock = new Mock<IProjectRepository>();
+            var paymentServiceMock = new Mock<IPaymentService>();
             
             var project = new Project("Nome de Teste 1", "Descrição de Teste 1", 1, 2, 10000);
             
@@ -23,8 +25,8 @@ namespace DevFreela.UnitTests.Application.Commands
             
             project.Start();
 
-            var finishProjectCommand = new FinishProjectCommand(1);
-            var finishProjectCommandtHandler = new FinishProjectCommandHandler(projectRepositoryMock.Object);
+            var finishProjectCommand = new FinishProjectCommand(1, "12341234", "123", "10/29", "Fillipe S");
+            var finishProjectCommandtHandler = new FinishProjectCommandHandler(projectRepositoryMock.Object, paymentServiceMock.Object);
             
             Assert.Equal(ProjectStatus.InProgress, project.Status);
 
