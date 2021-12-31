@@ -69,5 +69,11 @@ namespace DevFreela.Core.Entities
         }
 
         #endregion
+
+        public void SetPaymentPending()
+        {
+            Status = ProjectStatus.PaymentPending;
+            FinishedAt = null;
+        }
     }
 }
