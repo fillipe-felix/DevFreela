@@ -34,8 +34,8 @@ namespace DevFreela.UnitTests.Application.Commands
             await finishProjectCommandtHandler.Handle(finishProjectCommand, new CancellationToken());
 
             // Assert
-            Assert.Equal(ProjectStatus.Finished, project.Status);
-            projectRepositoryMock.Verify(f => f.FinishAsync(It.IsAny<Project>()), Times.Once);
+            Assert.Equal(ProjectStatus.PaymentPending, project.Status);
+            projectRepositoryMock.Verify(f => f.SaveChangesAsync(), Times.Once);
         }
     }
 }
