@@ -1,5 +1,7 @@
 using System.Collections.Generic;
 using System.Text;
+
+using DevFreela.API.Extensions;
 using DevFreela.API.Filters;
 using DevFreela.Application.Commands.CreateComment;
 using DevFreela.Application.Commands.CreateProject;
@@ -42,12 +44,8 @@ namespace DevFreela.API
 
             services.AddHttpClient();
 
-            services.AddScoped<IProjectRepository, ProjectRepository>();
-            services.AddScoped<IUserRepository, UserRepository>();
-            services.AddScoped<ISkillRepository, SkillRepository>();
-            services.AddScoped<IAuthService, AuthService>();
-            services.AddScoped<IPaymentService, PaymentService>();
-            
+            services.AddInfrastructure();
+
             services.AddControllers(options => options.Filters.Add(typeof(ValidationFilters)))
                 .AddFluentValidation(fv => fv.RegisterValidatorsFromAssemblyContaining<CreateUserCommandValidator>());
 
